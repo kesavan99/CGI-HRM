@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-export default function Announcement() {
+export default function Publicgroup() {
 
 const {currentUser}=useAuth()
 const history = useHistory()
@@ -27,8 +27,7 @@ const history = useHistory()
 <div  style={{paddingLeft:'15%',paddingTop:'5%'}}>  
      
 
-This announce
-
+This public group
 </div>
 </div>
 </div>

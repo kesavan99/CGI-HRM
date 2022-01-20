@@ -8,7 +8,7 @@ import {db} from '../contexts/firebase'
 import { cibFnac } from '@coreui/icons'
 
 
-export default function Event() {
+export default function Profile() {
 
   const history = useHistory()
  
@@ -50,7 +50,7 @@ export default function Event() {
               <h4>{blog.age}</h4>
               <p>{blog.address}</p>
            
-<img src={blog.photo}/>           
+           
             </div>
           )
         )
@@ -61,16 +61,6 @@ export default function Event() {
 
     )
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

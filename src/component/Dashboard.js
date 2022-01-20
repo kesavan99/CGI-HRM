@@ -135,6 +135,22 @@ export default function Dashboard() {
       activity: 'Last month',
     },
     {
+      avatar: { src: avatar5, status: 'success' },
+      user: {
+        name: 'Tanya',
+        new: true,
+        registered: 'Jan 1, 2021',
+      },
+      country: { name: 'Spain', flag: cifIn},
+      usage: {
+        value: 22,
+        period: 'Jun 11, 2021 - Jul 10, 2021',
+        color: 'primary',
+      },
+      payment: { name: 'Google Wallet', icon: cibCcApplePay },
+      activity: 'Last week',
+    },
+    {
       avatar: { src: avatar6, status: 'danger' },
       user: {
         name: 'Poonam',
@@ -196,13 +212,13 @@ return (
                   <CRow>
                     <CCol sm={6}>
                       <div className="border-start border-start-4 border-start-warning py-1 px-3 mb-3">
-                        <div className="text-medium-emphasis small">Lead</div>
+                        <div className="text-medium-emphasis small">Pageviews</div>
                         <div className="fs-5 fw-semibold">78,623</div>
                       </div>
                     </CCol>
                     <CCol sm={6}>
                       <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
-                        <div className="text-medium-emphasis small">Prospects </div>
+                        <div className="text-medium-emphasis small">Organic</div>
                         <div className="fs-5 fw-semibold">49,123</div>
                       </div>
                     </CCol>
@@ -281,10 +297,12 @@ return (
 
 
 
+
+
     </div>
     </div>
 </div>
-
+<Foot/>
      </div>
   )
 }

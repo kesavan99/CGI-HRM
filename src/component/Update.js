@@ -9,21 +9,7 @@ import { Link, useHistory } from "react-router-dom"
 import Buttons from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import { ButtonBase, tableBodyClasses } from "@mui/material";
-
-import { styled } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
-import Stack from '@mui/material/Stack';
-
-
-
-
-
-
-
-const Input = styled('input')({
-  display: 'none',
-});
+import Imageupload from "./Imageupload";
 
 
 
@@ -52,8 +38,28 @@ const Input = styled('input')({
 
     function handleSubmit(e) {
         e.preventDefault()
-    console.log("sucesss                        ")
-    
+    console.log("sucesss da                          ")
+    console.log(photoRef.current.value)
+
+
+    try{
+        db.collection("users").doc(currentUser.uid ).set({
+           
+            email:currentUser.email,
+            
+        photo:photoRef.current.value,
+            firstname:firstnameRef.current.value,
+            lastname:lastnameRef.current.value,
+            address:addressRef.current.value,
+            age:ageRef.current.value
+        
+        })
+        }catch(err){
+            console.erroe(err)
+        }
+          
+
+
     history.push("/")
 
     
@@ -100,26 +106,14 @@ const Input = styled('input')({
       </Form.Group>
       <Form.Group></Form.Group>
      
-      <Stack direction="row" alignItems="center" spacing={2}>
-      <label htmlFor="contained-button-file">
-        <Input accept="image/*" id="contained-button-file" multiple type="file" />
-        <Button variant="contained" component="span">
-          Upload
-        </Button>
-      </label>
-      <label htmlFor="icon-button-file">
-        <Input accept="image/*" id="icon-button-file" type="file" />
-        <IconButton color="primary" aria-label="upload picture" component="span">
-          <PhotoCamera />
-        </IconButton>
-      </label>
-    </Stack>
+     
       <br></br>
       <Buttons disabled={loading}  color="info" variant="contained"endIcon={<SendIcon />} type="submit">
         Sign Up
       </Buttons>
 
     </Form>
+   <Imageupload/>
   </Card.Body>
 </Card>
 

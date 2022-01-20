@@ -4,10 +4,10 @@ import Appbar from './Appbar'
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Spline } from 'react-spline'
 
 
-
-export default function Announcement() {
+export default function  Mygroup() {
 
 const {currentUser}=useAuth()
 const history = useHistory()
@@ -27,8 +27,7 @@ const history = useHistory()
 <div  style={{paddingLeft:'15%',paddingTop:'5%'}}>  
      
 
-This announce
-
+This Mygroup
 </div>
 </div>
 </div>

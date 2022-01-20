@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-export default function Announcement() {
+export default function Feed() {
 
 const {currentUser}=useAuth()
 const history = useHistory()
@@ -27,7 +27,8 @@ const history = useHistory()
 <div  style={{paddingLeft:'15%',paddingTop:'5%'}}>  
      
 
-This announce
+This feed
+
 
 </div>
 </div>

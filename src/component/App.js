@@ -17,14 +17,12 @@ import notification from './Notification'
 import announcement from './Announcement'
 import achive from './Achive'
 import activity from './Activity'
-import Mytaskdb from "./updatedb/Mytaskdb"
 import feed from './Feed'
 import event from './Event'
 import update from './Update'
 import profile from './Profile'
 import speed from './Speeddial'
 import "bootstrap/dist/css/bootstrap.min.css";
-import Announcementdb from "./updatedb/Announcementdb"
 function App() {
   return (
     <Container  >
@@ -118,17 +116,6 @@ function App() {
 
             <Switch>
               <Route  path="/speed" component={speed}>
-
-              </Route>
-            </Switch>
-           
-            <Switch>
-              <Route  path="/Mytaskdb" component={Mytaskdb}>
-
-              </Route>
-            </Switch>
-            <Switch>
-              <Route  path="/Announcementdb" component={Announcementdb}>
 
               </Route>
             </Switch>

@@ -18,7 +18,7 @@ import im from './img/5.jpg'
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 import LogoutIcon from '@mui/icons-material/Logout';
-import ChipInput from 'material-ui-chip-input';
+
 import UpdateIcon from '@mui/icons-material/Update';
 
 
@@ -114,11 +114,7 @@ const ResponsiveAppBar = () => {
 <Typography style={{marginLeft:'3%'}}>
 
 Email:  {currentUser.email}
-<ChipInput
-  placeholder='search'
-  
 
-/>
 
 </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

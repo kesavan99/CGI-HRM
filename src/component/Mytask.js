@@ -1,5 +1,5 @@
 import React from 'react'
-import {cilPencil} from '@coreui/icons'
+
 import { CCard, CCardBody, CCol, CCardHeader, CRow } from '@coreui/react'
 import {
   CChartBar,
@@ -14,7 +14,7 @@ import Appbar from './Appbar'
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CIcon from '@coreui/icons-react';
+
 
 
 export default function Mytask() {
@@ -44,11 +44,7 @@ const history = useHistory()
      
 
 <h2  style={{textAlign:'center',color :'lightblue'}}><strong>CGI Work Update</strong></h2>
-<div style={{paddingLeft:'98%' }}> edit
-<Link to="/Mytaskdb">
-<CIcon  style={{color:'blue'}} size='xxl'icon={cilPencil}   />
-</Link>
-</div>
+
 
 <CRow>
       <CCol xs={12}>
@@ -65,8 +61,6 @@ const history = useHistory()
                   {
                     label: 'Work Analysis',
                     backgroundColor: '#f87979',
-
-                    /* work update employee in each month */
                     data: [40, 20, 12, 39, 10, 40, 39, 80, 40],
                   },
                 ],
@@ -90,8 +84,6 @@ const history = useHistory()
                     borderColor: 'rgba(220, 220, 220, 1)',
                     pointBackgroundColor: 'rgba(220, 220, 220, 1)',
                     pointBorderColor: '#fff',
-
-                    /*  this part for curren and prevoius year analysis */
                     data: [random(), random(), random(), random(), random(), random(), random()],
                   },
                   {
@@ -117,17 +109,7 @@ const history = useHistory()
                 labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
                 datasets: [
                   {
-
-                 
                     backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-
-
-
-
-/*     This part for  most used language you can connect with database                    */
-
-
-
                     data: [40, 20, 80, 10],
                   },
                 ],
@@ -145,8 +127,6 @@ const history = useHistory()
                 labels: ['Krishna', 'kesavan', 'nandita'],
                 datasets: [
                   {
-
-                    /*  project work contribution */
                     data: [300, 50, 100],
                     backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
                     hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
