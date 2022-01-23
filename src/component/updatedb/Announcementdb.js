@@ -4,13 +4,17 @@ import { Editor } from 'react-draft-wysiwyg';
 import SendIcon from '@mui/icons-material/Send';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import axios from 'axios';
-import ActionAnnouncement from 'material-ui/svg-icons/action/announcement';
 import Sidebar from '../Sidebar'
 import Appbar from '../Appbar'
+import DatePicker from 'react-datetime';
+import moment from 'moment';
+import 'react-datetime/css/react-datetime.css';
+import { Input } from '@mui/material';
 import { useAuth } from "../../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from '@mui/material/Button';
+import  input  from '@mui/material/Input';
 
 class Announcementdb extends Component {
   constructor(props) {
@@ -54,7 +58,22 @@ class Announcementdb extends Component {
       <Sidebar/>
 <div  style={{paddingLeft:'15%',paddingTop:'5%'}}>  
 
-        <h5>Announcement</h5>        
+        <h5>Announcement</h5>  
+           Code No: <input/>
+           <div style={{paddingTop:'1%',paddingBottom:'1%'}}>  
+           Type:
+           <select className="form-select" style={{width:'25%'}} >
+  <option selected> Announcement Type</option>
+  <option value="1">By Employee</option>
+  <option value="2">By Department</option>
+  <option value="3">By Job position</option>
+</select>
+</div>
+<div style={{paddingBottom:'1%'}}>
+      <span> Title:</span>
+<input type="text" style={{width:'70%'}} class="form-control" placeholder="Title of Announcement"  aria-describedby="basic-addon2"/>
+</div>
+      
           <Editor
         
             editorState={this.state.editorState}
