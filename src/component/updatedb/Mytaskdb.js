@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Button, Card, Alert } from "react-bootstrap"
 import { Link, useHistory } from "react-router-dom"
+import DatePicker from 'react-datetime';
 import AddIcon from '@mui/icons-material/Add';
 import Snackbar from '@mui/material/Snackbar';
 import Buttons from '@mui/material/Button';
@@ -13,7 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Sidebar from '../Sidebar'
 import Appbar from '../Appbar'
 import DeleteIcon from '@mui/icons-material/Delete';
-import ReactDateInputs from 'react-date-inputs';
+
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -72,8 +73,9 @@ const Mytaskdb = () => {
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
 
-    const [svalue, ssetValue] = useState(new Date());
-    const [dvalue, dsetValue] = useState(new Date());
+    const [startDate, setstartDate] = useState(new Date());
+    const [endDate, setendDate] = useState(new Date());
+    
     const [formValues, setFormValues] = useState([{ taskname: "", status : "",statusper:"",languageused:""}])
 
     let handleChange = (i, e) => {
@@ -95,7 +97,7 @@ const Mytaskdb = () => {
     let handleSubmit = (event) => {
         event.preventDefault();
         console.log(JSON.stringify(formValues));
-        console.log(svalue,dvalue)
+        console.log(startDate._d,endDate._d)
     
       }
 
@@ -136,11 +138,11 @@ const Mytaskdb = () => {
          <div className="w-100  d-flex justify-content-start" style={{paddingTop:'1%'}}>  
           <label style={{paddingRight:'1%'}}>Starting Date</label>
               
-          <ReactDateInputs value={svalue} onChange={ssetValue}  />
+          <DatePicker selected={startDate} onChange={(date) => setstartDate(date)} />
           </div>
           <div className="w-100  d-flex justify-content-start" style={{paddingTop:'1%'}}>
                <label style={{paddingRight:'1%'}}>Dead Line Date</label>
-               <ReactDateInputs value={dvalue} onChange={dsetValue} />
+               <DatePicker selected={endDate} onChange={(date) => setendDate(date)} />
               
               
 
@@ -174,4 +176,4 @@ const Mytaskdb = () => {
       )
 }
 
-export default Mytaskdb
+export default Mytaskdb;

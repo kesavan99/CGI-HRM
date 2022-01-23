@@ -23,6 +23,7 @@ import update from './Update'
 import profile from './Profile'
 import speed from './Speeddial'
 import Announcementdb from "./updatedb/Announcementdb"
+import Mytaskdb from "./updatedb/Mytaskdb"
 import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
@@ -124,6 +125,11 @@ function App() {
         
             <Switch>
               <Route  path="/Announcementdb" component={Announcementdb}>
+
+              </Route>
+            </Switch>
+            <Switch>
+              <Route  path="/Mytaskdb" component={Mytaskdb}>
 
               </Route>
             </Switch>

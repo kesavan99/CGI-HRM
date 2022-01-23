@@ -20,11 +20,27 @@ class Announcementdb extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      editorState: EditorState.createEmpty()
+      editorState: EditorState.createEmpty(),
+      startDate: new Date(),
+      endDate: new Date()
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handeChange = this.handeChange.bind(this);
+    this.handChange = this.handChange.bind(this);
   }
-
+  handeChange(date) {
+    this.setState({
+      startDate: date
+    })
+    console.log(this.state.startDate)
+  }
+  
+  handChange(date) {
+    this.setState({
+      endDate: date
+    })
+    console.log(this.state.endDate)
+  }
   handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
   }
@@ -73,7 +89,23 @@ class Announcementdb extends Component {
       <span> Title:</span>
 <input type="text" style={{width:'70%'}} class="form-control" placeholder="Title of Announcement"  aria-describedby="basic-addon2"/>
 </div>
-      
+<div style={{paddingBottom:'10px',width:'30%'}}> Start Date:
+<DatePicker
+              selected={ this.state.startDate }
+              onChange={ this.handeChange }
+              name="startDate"
+              dateFormat="MM/dd/yyyy"
+          />
+</div>
+
+          <div style={{paddingBottom:'10px',width:'30%'}}> End Date:
+<DatePicker
+              selected={ this.state.endDate }
+              onChange={ this.handChange }
+              name="endDate"
+              dateFormat="MM/dd/yyyy"
+          />
+          </div>
           <Editor
         
             editorState={this.state.editorState}

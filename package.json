@@ -37,7 +37,8 @@
     "react-jsonschema-form-material-ui": "^3.0.0-rc.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "react-spline": "^1.2.1"
+    "react-spline": "^1.2.1",
+    "reactjs-media": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
