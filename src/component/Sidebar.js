@@ -72,9 +72,9 @@ export default function Sidebar() {
   return (
 
     <div >
-<div className="container">
-<div className="col "   >
-  <CSidebar position="fixed"  className=" mt-5 bg-info " style={{height:'flex'}} >
+<div>
+
+  <CSidebar position="fixed show" style={{height:'100%'}} className=" mt-5 bg-info " style={{height:'flex'}} >
 
   <CSidebarNav  >
   <CNavItem href="/profile">
@@ -150,9 +150,6 @@ export default function Sidebar() {
 
 
 
-</div>
-<div className="col  ">
-</div>
 </div>
 </div>
 

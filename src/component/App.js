@@ -25,11 +25,14 @@ import speed from './Speeddial'
 import Announcementdb from "./updatedb/Announcementdb"
 import Mytaskdb from "./updatedb/Mytaskdb"
 import "bootstrap/dist/css/bootstrap.min.css";
+import Sidebar from "./Sidebar"
 function App() {
   return (
     <Container  >
       <div >
         <Router>
+      
+
           <AuthProvider>
             <Switch>
               <PrivateRoute exact path="/" component={Dashboard} />

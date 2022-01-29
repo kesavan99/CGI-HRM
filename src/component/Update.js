@@ -9,8 +9,8 @@ import { Link, useHistory } from "react-router-dom"
 import Buttons from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import { ButtonBase, tableBodyClasses } from "@mui/material";
-import Imageupload from "./Imageupload";
 
+import {storage} from '../contexts/firebase';
 
 
 
@@ -18,6 +18,39 @@ import Imageupload from "./Imageupload";
     const { currentUser} = useAuth()
     const [singleImage,setSingleImage]=useState("");
 
+
+
+    const allInputs ={imgUrl:''}
+    const [imageAsFile,setImageAsFile]=useState('')
+    const [imageAsUrl,setImageAsUrl]=useState(allInputs)
+    console.log(imageAsFile)
+    const handleImageAsFile=(e)=>{
+      const imge=e.target.files[0]
+      setImageAsFile(imageAsFile=>(imge))
+    }
+
+const handleFireBaseUpload=e=>{
+  e.preventDefault()
+  console.log('start of upload')
+  if(imageAsFile==''){
+    console.error('not an image, the image file');
+  }
+  const uploadTask=storage.ref('/images/${imageAsFile.name}').put(imageAsFile)
+  uploadTask.on('state_changed',
+  (snapShot)=>{
+    console.log(snapShot)
+  },(err)=>{
+console.log(err)
+  },()=>{
+    storage.ref('images').child(imageAsFile.name).getDownloadURL()
+    .then(fireBaseUrl=>{
+      setImageAsUrl(prevObject=>({...prevObject,fireBaseUrl}))
+    })
+console.log(imageAsUrl)
+
+
+  })
+}
 
     const firstnameRef = useRef()
     const lastnameRef= useRef()
@@ -39,7 +72,7 @@ import Imageupload from "./Imageupload";
     function handleSubmit(e) {
         e.preventDefault()
     console.log("sucesss da                          ")
-    console.log(photoRef.current.value)
+    console.log(ageRef.current.value)
 
 
     try{
@@ -47,12 +80,11 @@ import Imageupload from "./Imageupload";
            
             email:currentUser.email,
             
-        photo:photoRef.current.value,
             firstname:firstnameRef.current.value,
             lastname:lastnameRef.current.value,
             address:addressRef.current.value,
-            age:ageRef.current.value
-        
+            age:ageRef.current.value,
+        photoRef:imageAsUrl
         })
         }catch(err){
             console.erroe(err)
@@ -104,8 +136,8 @@ import Imageupload from "./Imageupload";
         <Form.Label>age</Form.Label>
         <Form.Control type="age" placeholder="age" ref={ageRef} required required className="w-50  d-flex justify-content-around" class="col-lg-4 col-lg-offset-4" />
       </Form.Group>
-      <Form.Group></Form.Group>
-     
+   
+    
      
       <br></br>
       <Buttons disabled={loading}  color="info" variant="contained"endIcon={<SendIcon />} type="submit">
@@ -113,8 +145,13 @@ import Imageupload from "./Imageupload";
       </Buttons>
 
     </Form>
-   <Imageupload/>
+  
   </Card.Body>
+  <form onSubmit={handleFireBaseUpload}>
+<input type="file" onChange={handleImageAsFile} />
+<button>upload</button>
+      </form>
+  <img src={imageAsUrl.imgUrl}/>
 </Card>
 
             </div>
